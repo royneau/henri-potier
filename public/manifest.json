@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Henri Potier",
+  "name": "La bibliothèque d'Henri Potier",
+  "lang": "fr-FR",
   "icons": [
     {
       "src": "favicon.ico",
