@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Book({book, onClick}) {
+function Book({ book, onClick }) {
   return (
     <div className="Book">
       {book.title}

@@ -30,7 +30,7 @@ class App extends Component {
         title: book.title,
         price: book.price,
         cover: book.cover,
-        amount :1,
+        amount: 1,
       }
     }
     this.setState({
