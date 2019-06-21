@@ -7,16 +7,33 @@ class App extends Component {
 
   state = {
     books: [],
-    cart:[]
+    cart: {}
   }
 
   componentDidMount() {
     fetch('http://henri-potier.xebia.fr/books')
-    .then((response) => {
-      return response.json()
-    })
-    .then((myJson) => {
-      this.setState({ books: myJson })
+      .then((response) => {
+        return response.json()
+      })
+      .then((myJson) => {
+        this.setState({ books: myJson })
+      })
+  }
+
+  handleAddToCart = (book) => {
+    const cart = this.state.cart
+    if (book.isbn in this.state.cart) {
+      cart[book.isbn].amount += 1
+    } else {
+      cart[book.isbn] = {
+        title: book.title,
+        price: book.price,
+        cover: book.cover,
+        amount :1,
+      }
+    }
+    this.setState({
+      cart: cart,
     })
   }
 
@@ -27,7 +44,7 @@ class App extends Component {
         <ul>
           {this.state.books.map(book =>
             <li key={book.isbn}>
-              <Book book={book} />
+              <Book book={book} onClick={this.handleAddToCart} />
             </li>
           )}
         </ul>
