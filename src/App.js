@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Book from './Book';
+import CartItem from './CartItem';
 
 import './App.css'
 
@@ -45,6 +46,14 @@ class App extends Component {
           {this.state.books.map(book =>
             <li key={book.isbn}>
               <Book book={book} onClick={this.handleAddToCart} />
+            </li>
+          )}
+        </ul>
+        <h1>Mon panier</h1>
+        <ul>
+          {Object.keys(this.state.cart).map(key =>
+            <li key={key}>
+              <CartItem item={this.state.cart[key]} />
             </li>
           )}
         </ul>
