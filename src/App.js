@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Book from './Book';
-import CartItem from './CartItem';
+import Cart from './Cart';
 
 import './App.css'
 
@@ -49,14 +49,7 @@ class App extends Component {
             </li>
           )}
         </ul>
-        <h1>Mon panier</h1>
-        <ul>
-          {Object.keys(this.state.cart).map(key =>
-            <li key={key}>
-              <CartItem item={this.state.cart[key]} />
-            </li>
-          )}
-        </ul>
+        {Object.entries(this.state.cart).length > 0 && <Cart cart={this.state.cart} />}
       </div>
     )
   }
