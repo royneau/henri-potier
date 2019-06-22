@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CartItem from './CartItem';
 
+import './Cart.css'
+
 class Cart extends Component {
 
   state = {
@@ -54,18 +56,23 @@ class Cart extends Component {
 
   render() {
     return (
-      <div className="Cart">
+      <section className="Cart  item-fluid  pas">
         <h1>Mon panier</h1>
-        <ul>
+        <ul className="Cart__list  is-unstyled">
           {Object.keys(this.props.cart).map(key =>
             <li key={key}>
               <CartItem item={this.props.cart[key]} />
             </li>
           )}
         </ul>
-        <div>Total : {this.state.totalPrice}</div>
-        <div>Offre commerciale : {this.state.bestOffer}</div>
-      </div>
+        <div className="u-txt-right">
+          Total : {this.state.totalPrice}&nbsp;€
+        </div>
+        <div className="u-txt-center  mts">
+          <button className="btn--primary">Payez  {this.state.bestOffer}&nbsp;€</button>
+          <br />au lieu de <span className="u-txt-line-through">{this.state.totalPrice}&nbsp;€</span>
+        </div>
+      </section>
     )
   }
 }

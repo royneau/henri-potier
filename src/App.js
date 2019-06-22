@@ -40,7 +40,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App  flex-container">
         <Library books={this.state.books} handleAddToCart={this.handleAddToCart} />
         {Object.entries(this.state.cart).length > 0 && <Cart cart={this.state.cart} />}
       </div>
