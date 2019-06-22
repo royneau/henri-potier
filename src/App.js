@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Book from './Book';
 import Cart from './Cart';
+import Library from './Library';
 
 import './App.css'
 
@@ -41,14 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>La bibliothèque d'Henri Potier</h1>
-        <ul>
-          {this.state.books.map(book =>
-            <li key={book.isbn}>
-              <Book book={book} onClick={this.handleAddToCart} />
-            </li>
-          )}
-        </ul>
+        <Library books={this.state.books} handleAddToCart={this.handleAddToCart} />
         {Object.entries(this.state.cart).length > 0 && <Cart cart={this.state.cart} />}
       </div>
     )
