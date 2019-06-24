@@ -1,6 +1,7 @@
 import './Cart.css'
 
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import CartItem from './CartItem'
 
 class Cart extends Component {
@@ -75,6 +76,16 @@ class Cart extends Component {
       </aside>
     )
   }
+}
+
+Cart.propTypes = {
+  cart: PropTypes.objectOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 }
 
 export default Cart

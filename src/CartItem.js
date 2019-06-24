@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function CartItem({ item }) {
   return (
@@ -7,6 +8,14 @@ function CartItem({ item }) {
       <span className="w20  txtright">{item.amount}&nbsp;x&nbsp;{item.price}&nbsp;€</span>
     </div>
   )
+}
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
 }
 
 export default CartItem

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Book from './Book'
 
 function Library({ books, handleAddToCart }) {
@@ -14,6 +15,17 @@ function Library({ books, handleAddToCart }) {
       </ul>
     </main>
   )
+}
+
+Library.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      cover: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
 }
 
 export default Library
