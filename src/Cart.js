@@ -21,7 +21,7 @@ class Cart extends Component {
   calculatePrice(cart) {
     /* calculate the total price */
     var totalPrice = 0
-    Object.keys(cart).map(key => {
+    Object.keys(cart).forEach(key => {
       const item = cart[key]
       totalPrice += (item.amount * item.price)
     })
