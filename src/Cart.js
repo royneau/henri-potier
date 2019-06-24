@@ -1,7 +1,7 @@
+import './Cart.css'
+
 import React, { Component } from 'react'
 import CartItem from './CartItem';
-
-import './Cart.css'
 
 class Cart extends Component {
 

@@ -1,6 +1,6 @@
-import React from 'react'
-
 import './Book.css'
+
+import React from 'react'
 
 function Book({ book, handleAddToCart }) {
   return (
