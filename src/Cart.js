@@ -69,7 +69,7 @@ class Cart extends Component {
           Total : {this.state.totalPrice}&nbsp;€
         </div>
         <div className="u-txt-center  mts">
-          <button className="btn--primary">Payez  {this.state.bestOffer}&nbsp;€</button>
+          <button className="Cart__buy  btn--primary">Payez  {this.state.bestOffer}&nbsp;€</button>
           <br />au lieu de <span className="u-txt-line-through">{this.state.totalPrice}&nbsp;€</span>
         </div>
       </aside>
