@@ -1,7 +1,7 @@
 import './Cart.css'
 
 import React, { Component } from 'react'
-import CartItem from './CartItem';
+import CartItem from './CartItem'
 
 class Cart extends Component {
 
@@ -21,7 +21,7 @@ class Cart extends Component {
   calculatePrice(cart) {
     /* calculate the total price */
     var totalPrice = 0
-    Object.keys(cart).forEach(key => {
+    Object.keys(cart).forEach((key) => {
       const item = cart[key]
       totalPrice += (item.amount * item.price)
     })
@@ -40,7 +40,7 @@ class Cart extends Component {
 
   calculatebestOffer(price, offers) {
     const proposedOffers = []
-    offers.forEach(offer => {
+    offers.forEach((offer) => {
       if (offer.type === 'percentage') {
         proposedOffers.push(price - (price * offer.value / 100))
       } else if (offer.type === 'minus') {
@@ -59,7 +59,7 @@ class Cart extends Component {
       <aside className="Cart  item-fluid  pas">
         <h1>Mon panier</h1>
         <ul className="Cart__list  is-unstyled">
-          {Object.keys(this.props.cart).map(key =>
+          {Object.keys(this.props.cart).map((key) =>
             <li key={key}>
               <CartItem item={this.props.cart[key]} />
             </li>

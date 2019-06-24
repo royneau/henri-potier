@@ -1,14 +1,14 @@
 import './App.css'
 
 import React, { Component } from 'react'
-import Cart from './Cart';
-import Library from './Library';
+import Cart from './Cart'
+import Library from './Library'
 
 class App extends Component {
 
   state = {
     books: [],
-    cart: {}
+    cart: {},
   }
 
   componentDidMount() {
@@ -48,4 +48,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
