@@ -56,7 +56,7 @@ class Cart extends Component {
 
   render() {
     return (
-      <section className="Cart  item-fluid  pas">
+      <aside className="Cart  item-fluid  pas">
         <h1>Mon panier</h1>
         <ul className="Cart__list  is-unstyled">
           {Object.keys(this.props.cart).map(key =>
@@ -72,7 +72,7 @@ class Cart extends Component {
           <button className="btn--primary">Payez  {this.state.bestOffer}&nbsp;€</button>
           <br />au lieu de <span className="u-txt-line-through">{this.state.totalPrice}&nbsp;€</span>
         </div>
-      </section>
+      </aside>
     )
   }
 }
