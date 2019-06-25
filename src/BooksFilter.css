@@ -1,0 +1,10 @@
+.BooksFilter::before {
+  content: "⚲";
+  display: inline-block;
+  transform: rotate(45deg);
+  margin-right: .5rem;
+}
+
+.BooksFilter__filter {
+  width: calc(100% - 2rem);
+}

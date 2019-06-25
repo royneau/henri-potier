@@ -3,12 +3,18 @@ import './App.css'
 import React, { Component } from 'react'
 import Cart from './Cart'
 import Library from './Library'
+import BooksFilter from './BooksFilter'
 
 class App extends Component {
 
-  state = {
-    books: [],
-    cart: {},
+  constructor(props) {
+    super(props);
+    this.state = {
+      filteredBooks: [],
+      cart: {},
+    }
+    this.books = []
+    this.filter = React.createRef();
   }
 
   componentDidMount() {
@@ -17,7 +23,8 @@ class App extends Component {
         return response.json()
       })
       .then((myJson) => {
-        this.setState({ books: myJson })
+        this.books = myJson
+        this.setState({ filteredBooks: myJson })
       })
   }
 
@@ -38,10 +45,27 @@ class App extends Component {
     })
   }
 
+  handleFilter = () => {
+    const filter = this.filter.current.value
+
+    var regex = RegExp(`.*${filter}.*`, 'i')
+
+    const books = this.books.filter((book) => {
+      return regex.test(book.title)
+        || regex.test(book.synopsis.join())
+    })
+
+    this.setState({
+      filteredBooks: books,
+    })
+  }
+
   render() {
     return (
       <div className="App  flex-container">
-        <Library books={this.state.books} handleAddToCart={this.handleAddToCart} />
+        <Library books={this.state.filteredBooks} handleAddToCart={this.handleAddToCart}>
+          <BooksFilter filterRef={this.filter} handleFilter={this.handleFilter} />
+        </Library>
         {Object.entries(this.state.cart).length > 0 && <Cart cart={this.state.cart} />}
       </div>
     )
