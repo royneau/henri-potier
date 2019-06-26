@@ -58,24 +58,33 @@ class Cart extends Component {
 
   render() {
     return (
-      <aside className="Cart  item-fluid  pas">
+      <main className="Cart  item-fluid  pas">
         <h1>Mon panier</h1>
         <Nav />
-        <ul className="Cart__list  is-unstyled">
-          {Object.keys(this.props.cart).map((key) =>
-            <li key={key}>
-              <CartItem item={this.props.cart[key]} />
-            </li>
+        {Object.entries(this.props.cart).length > 0 ? (
+          <div>
+            <ul className="Cart__list  is-unstyled">
+              {Object.keys(this.props.cart).map((key) =>
+                <li key={key}>
+                  <CartItem item={this.props.cart[key]} />
+                </li>
+              )}
+            </ul>
+            <div className="u-txt-right">
+              Total : {this.state.totalPrice}&nbsp;€
+              </div>
+            <div className="u-txt-center  mts">
+              <button className="Cart__buy  btn--primary">Payer {this.state.bestOffer}&nbsp;€</button>
+              <br />au lieu de <span className="u-txt-line-through">{this.state.totalPrice}&nbsp;€</span>
+            </div>
+          </div>
+        ) : (
+            <div>
+              Votre panier est pour le moment vide.<br />
+              Faites un tour dans notre bibliothèque et laissez vous tenter par un livre de notre collection :-)
+            </div>
           )}
-        </ul>
-        <div className="u-txt-right">
-          Total : {this.state.totalPrice}&nbsp;€
-        </div>
-        <div className="u-txt-center  mts">
-          <button className="Cart__buy  btn--primary">Payer {this.state.bestOffer}&nbsp;€</button>
-          <br />au lieu de <span className="u-txt-line-through">{this.state.totalPrice}&nbsp;€</span>
-        </div>
-      </aside>
+      </main>
     )
   }
 }
