@@ -1,9 +1,9 @@
 import './App.css'
 
 import React, { Component } from 'react'
-import Cart from './Cart'
-import Library from './Library'
-import BooksFilter from './BooksFilter'
+import Cart from '../cart/Cart'
+import Library from '../library/Library'
+import BooksFilter from '../library/BooksFilter'
 
 class App extends Component {
 
