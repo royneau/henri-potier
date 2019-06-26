@@ -3,6 +3,7 @@ import './Cart.css'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CartItem from './CartItem'
+import Nav from '../main/Nav'
 
 class Cart extends Component {
 
@@ -59,6 +60,7 @@ class Cart extends Component {
     return (
       <aside className="Cart  item-fluid  pas">
         <h1>Mon panier</h1>
+        <Nav />
         <ul className="Cart__list  is-unstyled">
           {Object.keys(this.props.cart).map((key) =>
             <li key={key}>

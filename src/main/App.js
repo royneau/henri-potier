@@ -1,6 +1,7 @@
 import './App.css'
 
 import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import Cart from '../cart/Cart'
 import Library from '../library/Library'
 import BooksFilter from '../library/BooksFilter'
@@ -63,11 +64,18 @@ class App extends Component {
   render() {
     return (
       <div className="App  flex-container">
-        <Library books={this.state.filteredBooks} handleAddToCart={this.handleAddToCart}>
-          <BooksFilter filterRef={this.filter} handleFilter={this.handleFilter} />
-        </Library>
-        {Object.entries(this.state.cart).length > 0 && <Cart cart={this.state.cart} />}
-      </div>
+        <Switch>
+          <Route exact={true} path="/" render={() =>
+            <Library books={this.state.filteredBooks} handleAddToCart={this.handleAddToCart}>
+              <BooksFilter filterRef={this.filter} handleFilter={this.handleFilter} />
+            </Library>
+          } />
+          <Route exact={true} path="/cart" render={() =>
+            <Cart cart={this.state.cart} />
+          } />
+          <Route render={() => <div>404 : Not found</div>} />
+        </Switch>
+      </div >
     )
   }
 }
