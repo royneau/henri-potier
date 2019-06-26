@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import Book from './Book'
 import Nav from '../main/Nav'
 
-function Library({ books, handleAddToCart, children }) {
+function Library({ books, handleAddToCart, cartItemAmount, children }) {
   return (
     <main role="main" className="Library  pas">
       <h1>La bibliothèque d'Henri&nbsp;Potier</h1>
-      <Nav />
+      <Nav cartItemAmount={cartItemAmount} />
       {children}
       <ul className="is-unstyled  grid-3-small-2  has-gutter">
         {books.map((book) =>

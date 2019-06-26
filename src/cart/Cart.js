@@ -60,7 +60,7 @@ class Cart extends Component {
     return (
       <main className="Cart  item-fluid  pas">
         <h1>Mon panier</h1>
-        <Nav />
+        <Nav cartItemAmount={this.props.cartItemAmount} />
         {Object.entries(this.props.cart).length > 0 ? (
           <div>
             <ul className="Cart__list  is-unstyled">

@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       filteredBooks: [],
       cart: {},
+      cartItemAmount: 0,
     }
     this.books = []
     this.filter = React.createRef();
@@ -41,8 +42,12 @@ class App extends Component {
         amount: 1,
       }
     }
+
+    const cartItemAmount = this.state.cartItemAmount + 1
+
     this.setState({
-      cart: cart,
+      cart,
+      cartItemAmount,
     })
   }
 
@@ -66,12 +71,12 @@ class App extends Component {
       <div className="App  flex-container">
         <Switch>
           <Route exact={true} path="/" render={() =>
-            <Library books={this.state.filteredBooks} handleAddToCart={this.handleAddToCart}>
+            <Library books={this.state.filteredBooks} handleAddToCart={this.handleAddToCart} cartItemAmount={this.state.cartItemAmount}>
               <BooksFilter filterRef={this.filter} handleFilter={this.handleFilter} />
             </Library>
           } />
           <Route exact={true} path="/cart" render={() =>
-            <Cart cart={this.state.cart} />
+            <Cart cart={this.state.cart} cartItemAmount={this.state.cartItemAmount} />
           } />
           <Route render={() => <div>404 : Not found</div>} />
         </Switch>
