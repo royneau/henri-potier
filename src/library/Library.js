@@ -5,11 +5,11 @@ import Nav from '../main/Nav'
 
 function Library({ books, handleAddToCart, children }) {
   return (
-    <main role="main" className="Library  w66  small-w100  tiny-w100  pas">
+    <main role="main" className="Library  pas">
       <h1>La bibliothèque d'Henri&nbsp;Potier</h1>
       <Nav />
       {children}
-      <ul className="is-unstyled  grid-2 has-gutter">
+      <ul className="is-unstyled  grid-3-small-2  has-gutter">
         {books.map((book) =>
           <li key={book.isbn}>
             <Book book={book} handleAddToCart={handleAddToCart} />

@@ -1,12 +1,14 @@
+import './Nav.css'
+
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Nav() {
   return (
     <nav className="mbm" role="navigation" aria-label="Menu principal">
-      <Link to="/" >Tous les livres</Link>
+      <NavLink className="NavLink" exact={true} activeClassName="NavLink--is-active" to="/" >Tous les livres</NavLink>
       &nbsp;|&nbsp;
-      <Link to="/cart">Mon panier</Link>
+      <NavLink className="NavLink" exact={true} activeClassName="NavLink--is-active" to="/cart">Mon panier</NavLink>
     </nav>
   )
 }
